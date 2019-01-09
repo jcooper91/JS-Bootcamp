@@ -16,7 +16,6 @@ let addExpense = function (account, amount) {
 // addIncome - account, income
 let addIncome = function (account, income) {
     account.income = account.income + income;
-    console.log(account)
 }
 
 
@@ -24,7 +23,6 @@ let addIncome = function (account, income) {
 let resetAccount = function (account) {
     account.expenses = 0;
     account.income = 0;
-    console.log(account)
 }
 // get account summary = print account summary - account for Jack has £9000, £900 for income, £100 for expenses
 let accountSummary = function (account) {
