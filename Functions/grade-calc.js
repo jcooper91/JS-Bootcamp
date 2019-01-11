@@ -25,8 +25,8 @@ let result = calculateGrade(25);
 console.log(result);
 */
 /**Instructor Way (cleaner) */
-let gradeCalc = function (score, totalScore) {
-    let percent = (score / totalScore) * 100;
+const gradeCalc = function (score, totalScore) {
+    const percent = (score / totalScore) * 100;
     let letterGrade = '';
     if (percent >= 90) {
         letterGrade = "A"
@@ -41,5 +41,5 @@ let gradeCalc = function (score, totalScore) {
     }
     return `You got an ${letterGrade} (${percent}%)`;
 }
-let result = gradeCalc(20, 65);
+const result = gradeCalc(20, 65);
 console.log(result);
