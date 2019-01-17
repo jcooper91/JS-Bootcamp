@@ -1,4 +1,14 @@
-const notes = ['Note 1', 'Note 2', 'Note 3'];
+const notes = [{},
+{
+    title: 'My next trip',
+    body: 'Off to Vienna'
+}, {
+    title: 'Resolutions this year',
+    body: 'Exercise'
+}, {
+    title: 'Office Modification',
+    body: 'Get a new mouse'
+}];
 // console.log(notes.length);
 // console.log(notes[0]);
 
@@ -28,9 +38,8 @@ notes.forEach(function (item, index) {
 console.log(notes.length);
 console.log(notes);
 
-for (let count = 0; count <= 2; count++) {
-    console.log(count);
-}
+// console.log(notes.indexOf('Note 1'));
+// indexOf doesn't work with objects wihthin an array
 
 
 

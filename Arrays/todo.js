@@ -12,5 +12,9 @@ todos.forEach(function (item, index) {
     console.log(`${num}. ${item}`);
 })
 
-console.log(todos);
+for (let count = 0; count < todos.length; count++) {
+    const num = count + 1;
+    const todo = todos[count];
+    console.log(`${num}. ${todo}`);
+}
 
