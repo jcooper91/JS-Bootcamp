@@ -21,16 +21,13 @@ const todos = [
     }
 ]
 
-let deleteTodo = function (todos, itemToDelete) {
-    let todo = todos.findIndex(function (todo) {
-        return todo.text.toLowerCase() === itemToDelete.toLowerCase();
+let deleteTodo = function (todos, deleteItem) {
+    let index = todos.findIndex(function (todo, index) {
+        return todo.text.toLowerCase() === deleteItem.toLowerCase();
     })
-    if (todo > -1) {
-        todos.splice(todo, 1);
-    }
-
+    todos.splice(index, 1);
 }
-deleteTodo(todos, 'cook');
+deleteTodo(todos, 'run');
 console.log(todos);
 
 // delete third item
