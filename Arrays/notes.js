@@ -18,14 +18,30 @@ const findNote = function (notes, noteTitle) {
     });
 }
 
+
+const filteredNote = notes.filter(function(note, index) {
+    const isTitleMatch = note.title.toLowerCase().includes('ne');
+    const isBodyMatch = note.body.toLowerCase().includes('ne');
+    return isTitleMatch || isBodyMatch; 
+})
+
+const findNotes = function(notes, query) {
+    return notes.filter(function(note, index) {
+        const isTitleMatch = note.title.toLowerCase().includes(query.toLowerCase());
+        const isBodyMatch = note.body.toLowerCase().includes(query.toLowerCase());
+        return isTitleMatch ||isBodyMatch;
+    })
+}
+console.log(findNotes(notes, 'Modification'))
+
 // const findNote = function (notes, noteTitle) {
 //     let index = notes.findIndex(function (note, index) {
 //         return note.title.toLowerCase() === noteTitle.toLowerCase();
 //     })
 //     return notes[index];
 // }
-const note = findNote(notes, 'my next trip');
-console.log(note);
+// const note = findNote(notes, 'my next trip');
+// console.log(note);
 
 
 
@@ -43,13 +59,13 @@ console.log(note);
 
 
 
+// console.log(filteredNote);
 
 
 
 
 // console.log(notes.shift()); // remove first item
-// console.log(notes.unshift('My first note'));
-// add item at beginnig of array
+// console.log(notes.unshift('My first note')); add item at beginning of array
 
 // access the last item in an array
 // console.log(notes[notes.length - 1]); // note 3 - prints last item in array 
