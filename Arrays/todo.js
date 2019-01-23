@@ -21,6 +21,21 @@ const todos = [
     }
 ]
 
+const sortTodos = function(todos) {
+    todos.sort(function(a, b) {
+        if(!a.complete && b.complete) {
+            return -1
+        } else if(!b.complete && a.complete) {
+            return 1
+        } else {
+            return 0
+        }
+    })
+}
+sortTodos(todos)
+console.log(todos);
+
+
 const getThingsToDo = function(todos) {
     return todos.filter(function(todo, index) {
         return !todo.complete;
@@ -28,7 +43,7 @@ const getThingsToDo = function(todos) {
         // return todo.complete === false;
     }) 
 }
-console.log(getThingsToDo(todos));
+// console.log(getThingsToDo(todos));
 
 let deleteTodo = function (todos, deleteItem) {
     let index = todos.findIndex(function (todo, index) {
