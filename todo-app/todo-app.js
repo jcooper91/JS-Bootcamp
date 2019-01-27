@@ -21,6 +21,10 @@ const todos = [
     }
 ]
 
+document.querySelector('button').addEventListener('click', function(e) {
+    console.log('Hey, you clicked the button!');
+})
+
 const inCompleteTodos = todos.filter(function(todo) {
     return !todo.complete;
 }) 
@@ -37,8 +41,7 @@ todos.forEach(function(todo) {
     console.log(todo.text)
 })
 
-// you have two todos left ni a paragraph tag
-// print a paragraph for each todo above (use text value for the object)
+
 
 
 
