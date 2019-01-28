@@ -21,9 +21,35 @@ const todos = [
     }
 ]
 
-document.querySelector('button').addEventListener('click', function(e) {
-    console.log('Hey, you clicked the button!');
-})
+/**
+ * 2 - setup filters (searchText) and wire up a new filter input to change it 
+ * 3 - create a renderTodos function to render and rerender the laster filtered todo data
+ */
+
+ const filters = {
+     searchText: ''
+ }
+
+ const renderTodos = function(todos, filters) {
+     const filterTodos = todos.filter(function(todo) {
+        return todo.text.toLowerCase().includes(filters.searchText.toLowerCase());
+     })
+     
+     document.querySelector('#todo-list').innerHTML = '';
+     
+     filterTodos.forEach(function(todo) {
+        const todoPara = document.createElement('p');
+        todoPara.innerHTML = todo.text;
+        document.querySelector('#todo-list').appendChild(todoPara);
+    })
+ }
+
+ renderTodos(todos, filters)
+
+ document.querySelector('#search-todo').addEventListener('input', function(e) {
+     filters.searchText = e.target.value;
+     renderTodos(todos, filters);
+ })
 
 const inCompleteTodos = todos.filter(function(todo) {
     return !todo.complete;
@@ -34,12 +60,7 @@ summary.innerText = `You have ${inCompleteTodos.length} todo's left`;
 document.querySelector('body').appendChild(summary);
 
 
-todos.forEach(function(todo) {
-    const todoPara = document.createElement('p');
-    todoPara.innerHTML = todo.text;
-    document.querySelector('body').appendChild(todoPara);
-    console.log(todo.text)
-})
+
 
 
 
