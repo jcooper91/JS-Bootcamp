@@ -44,3 +44,9 @@ document.querySelector('#remove-all').addEventListener('click', function(e) {
         note.remove();
     })
 })
+
+document.querySelector('#name-form').addEventListener('submit', function(e) {
+    console.log(e.target.elements.firstName.value);
+    e.target.elements.firstName.value = '';
+    e.preventDefault();
+})

@@ -21,10 +21,6 @@ const todos = [
     }
 ]
 
-/**
- * 2 - setup filters (searchText) and wire up a new filter input to change it 
- * 3 - create a renderTodos function to render and rerender the laster filtered todo data
- */
 
  const filters = {
      searchText: ''
@@ -35,7 +31,16 @@ const todos = [
         return todo.text.toLowerCase().includes(filters.searchText.toLowerCase());
      })
      
-     document.querySelector('#todo-list').innerHTML = '';
+     
+     const inCompleteTodos = filterTodos.filter(function(todo) {
+        return !todo.complete;
+    }) 
+
+    document.querySelector('#todo-list').innerHTML = '';
+    
+    const summary = document.createElement('h2');
+    summary.textContent = `You have ${inCompleteTodos.length} todo's left`;
+    document.querySelector('#todo-list').appendChild(summary);
      
      filterTodos.forEach(function(todo) {
         const todoPara = document.createElement('p');
@@ -51,32 +56,18 @@ const todos = [
      renderTodos(todos, filters);
  })
 
-const inCompleteTodos = todos.filter(function(todo) {
-    return !todo.complete;
-}) 
+ document.querySelector('#create-todo').addEventListener('click', function(e) {
+     e.target.textContent = 'The button was clicked!';
+ })
 
-const summary = document.createElement('h2');
-summary.innerText = `You have ${inCompleteTodos.length} todo's left`;
-document.querySelector('body').appendChild(summary);
+ document.querySelector('#todo-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+     todos.push({
+        text:  e.target.elements.newTodo.value,
+        complete: false
+     }) 
+    e.target.elements.newTodo.value = '';
+    renderTodos(todos, filters)
+   
+ })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const ps = document.querySelectorAll('p');
-
-// ps.forEach(function(p) {
-//     if(p.textContent.includes('the')) {
-//         p.remove();
-//     }
-// })
