@@ -39,14 +39,6 @@ document.querySelector('#create-note').addEventListener('click', function(e) {
     e.target.textContent = 'The button was clicked';
 })
 
-document.querySelector('#remove-all').addEventListener('click', function(e) {
-    document.querySelectorAll('.note').forEach(function(note) {
-        note.remove();
-    })
-})
-
-document.querySelector('#name-form').addEventListener('submit', function(e) {
-    console.log(e.target.elements.firstName.value);
-    e.target.elements.firstName.value = '';
-    e.preventDefault();
+document.querySelector('#for-fun').addEventListener('change', function(e) {
+    console.log(e.target.checked);
 })
