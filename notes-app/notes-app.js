@@ -39,6 +39,7 @@ document.querySelector('#create-note').addEventListener('click', function(e) {
     e.target.textContent = 'The button was clicked';
 })
 
-document.querySelector('#for-fun').addEventListener('change', function(e) {
-    console.log(e.target.checked);
+document.querySelector('#filter-by').addEventListener('change', function(e) {
+    console.log(e.target.value);
+    
 })

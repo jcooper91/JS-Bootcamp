@@ -9,12 +9,14 @@
 <body>
     <h1>This is a heading</h1>
     <h2>Tkae notes and never forget</h2>
-    <input type="text" id="search-text" placeholder="Filter Todos">
+    <input type="text" id="search-text" placeholder="Filter Notes"> 
+    <select id="filter-by">
+        <option value="byEdited">Sort by last edited</option>
+        <option value="byCreated">Sort by last created</option>
+        <option value="alphabetical">Sort by alphabetical</option>
+    </select>
     <div id="notes"></div>
     <button id="create-note">Create Note</button>
-    <label>
-        <input type="checkbox" name="" id="for-fun">Check me for fun
-    </label>
     <script src="notes-app.js"></script>
 </body>
 </html> 
