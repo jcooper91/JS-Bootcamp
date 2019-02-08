@@ -1,56 +1,8 @@
-const todos = [
-    {
-        text: 'Play piano',
-        complete: true
-    },
-    {
-        text: 'Code',
-        complete: true
-    },
-    {
-        text: 'Cook',
-        complete: false
-    },
-    {
-        text: 'Run',
-        complete: false
-    },
-    {
-        text: 'Sleep',
-        complete: true
-    }
-]
+let todos = getSavedTodos();
 
 const filters = {
     searchText: '',
     hideCompleted: false
-}
-
-const renderTodos = function(todos, filters) {
-
-    let filterTodos = todos.filter(function(todo) {
-       const searchTextMatch = todo.text.toLowerCase().includes(filters.searchText.toLowerCase());
-       const hideCompleteMatch = !filters.hideCompleted || !todo.complete;
-       return searchTextMatch && hideCompleteMatch; 
-    })
-    
-    const inCompleteTodos = filterTodos.filter(function(todo) {
-       return !todo.complete;
-   }) 
-
-   document.querySelector('#todo-list').innerHTML = '';
-   
-   // print incomplete todo's
-   const summary = document.createElement('h2');
-   summary.textContent = `You have ${inCompleteTodos.length} todo's left`;
-   document.querySelector('#todo-list').appendChild(summary);
-   
-   
-   filterTodos.forEach(function(todo) {
-       const todoPara = document.createElement('p');
-       todoPara.innerHTML = todo.text;
-       document.querySelector('#todo-list').appendChild(todoPara);
-   })
 }
 
 renderTodos(todos, filters)
@@ -74,6 +26,7 @@ document.querySelector('#todo-form').addEventListener('submit', function(e) {
        complete: false
     }) 
    e.target.elements.newTodo.value = '';
+   saveTodos(todos);
    renderTodos(todos, filters)
   
 })
