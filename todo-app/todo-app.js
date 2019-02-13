@@ -22,14 +22,15 @@ document.querySelector('#search-todo').addEventListener('input', function(e) {
 document.querySelector('#todo-form').addEventListener('submit', function(e) {
    e.preventDefault();
     todos.push({
+       id: uuidv4(),
        text:  e.target.elements.newTodo.value,
        complete: false
     }) 
    e.target.elements.newTodo.value = '';
    saveTodos(todos);
    renderTodos(todos, filters)
-  
 })
+
 
 document.querySelector('#create-todo').addEventListener('click', function(e) {
    e.target.textContent = 'The button was clicked!';

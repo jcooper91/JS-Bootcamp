@@ -9,6 +9,18 @@ const getSavedNotes = function() {
     }
 }
 
+// remove note 
+const removeNote = function(id) {
+
+    const findNote = notes.findIndex(function(note) {
+        return note.id === id
+    }) 
+
+    if(findNote > -1) {
+        notes.splice(findNote, 1)
+    }
+}
+
 // save notes to localStorage
 const saveNotes = function(notes) {
     localStorage.setItem('notes', JSON.stringify(notes))
@@ -22,6 +34,12 @@ const generateNoteDOM = function(note) {
 
     button.textContent = 'x';
     noteEl.appendChild(button);
+    button.addEventListener('click', function() {
+        removeNote(note.id)
+        saveNotes(notes)
+        renderNotes(notes, filters)
+       
+    })
 
     if(note.title.length > 0) {
         textEl.textContent = note.title;    
@@ -31,6 +49,7 @@ const generateNoteDOM = function(note) {
     noteEl.appendChild(textEl);
 
     return noteEl;
+    console.log(notes)
 }
 
 // render appllication notes

@@ -14,6 +14,8 @@ const saveTodos = function(todos) {
     localStorage.setItem('todos', JSON.stringify(todos));
 }
 
+
+
 // Render application todos based on filters 
 const renderTodos = function(todos, filters) {
 
@@ -38,6 +40,15 @@ const renderTodos = function(todos, filters) {
    })
 }
 
+// Remove Todo item
+const removeTodo = function(id) {
+    
+    const findIndex = todos.findIndex(function(todo) {
+        return todo.id === id;
+    })
+    todos.splice(findIndex, 1)   
+}
+
 // Get the DOM elements for an individual note
 const generateTodoDOM = function(todo) {
     const newEl     = document.createElement('div')
@@ -56,7 +67,11 @@ const generateTodoDOM = function(todo) {
     newEl.appendChild(textEl);
 
     newEl.appendChild(removeBtn);
-
+    removeBtn.addEventListener('click', function() {
+        removeTodo(todo.id)
+        saveTodos(todos)
+        renderTodos(todos, filters)
+    })
     return newEl;
 }
 
