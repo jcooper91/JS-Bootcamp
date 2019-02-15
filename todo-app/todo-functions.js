@@ -46,7 +46,21 @@ const removeTodo = function(id) {
     const findIndex = todos.findIndex(function(todo) {
         return todo.id === id;
     })
-    todos.splice(findIndex, 1)   
+    if(findIndex > -1) {
+        todos.splice(findIndex, 1)   
+    }
+    
+}
+
+// Toggle the completed value for a given todo
+const checkTodo = function(id) {
+    const todo = todos.find(function(todo) {
+        return todo.id === id
+    })
+
+    if(todo !== undefined) {
+        todo.completed = !todo.completed
+    }
 }
 
 // Get the DOM elements for an individual note
@@ -59,6 +73,12 @@ const generateTodoDOM = function(todo) {
     removeBtn.textContent = 'x'
 
     checkBox.setAttribute('type', 'checkbox')
+    checkBox.checked = todo.completed;
+    checkBox.addEventListener('change', function() {
+        checkTodo(todo.id)
+        saveTodos(todos)
+        renderTodos(todos, filters)
+    })
     
     newEl.appendChild(checkBox)
 
@@ -72,6 +92,7 @@ const generateTodoDOM = function(todo) {
         saveTodos(todos)
         renderTodos(todos, filters)
     })
+
     return newEl;
 }
 
