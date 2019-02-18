@@ -49,7 +49,6 @@ const generateNoteDOM = function(note) {
     noteEl.appendChild(textEl);
 
     return noteEl;
-    console.log(notes)
 }
 
 // render appllication notes

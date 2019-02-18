@@ -36,7 +36,7 @@ const renderTodos = function(todos, filters) {
    
    filterTodos.forEach(function(todo) {
        const todoPara = generateTodoDOM(todo)
-       document.querySelector('#todo-list').appendChild(todoPara)
+       document.querySelector('#todo-list').appendChild(todoPara)    
    })
 }
 
@@ -57,9 +57,8 @@ const checkTodo = function(id) {
     const todo = todos.find(function(todo) {
         return todo.id === id
     })
-
     if(todo !== undefined) {
-        todo.completed = !todo.completed
+        todo.complete = !todo.complete
     }
 }
 
@@ -73,7 +72,7 @@ const generateTodoDOM = function(todo) {
     removeBtn.textContent = 'x'
 
     checkBox.setAttribute('type', 'checkbox')
-    checkBox.checked = todo.completed;
+    checkBox.checked = todo.complete;
     checkBox.addEventListener('change', function() {
         checkTodo(todo.id)
         saveTodos(todos)
