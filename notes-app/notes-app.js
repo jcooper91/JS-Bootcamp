@@ -26,3 +26,6 @@ document.querySelector('#filter-by').addEventListener('change', function (e) {
     console.log(e.target.value)
 })
 
+window.addEventListener('storage', function() {
+    console.log('data changed');
+})
