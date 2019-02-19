@@ -11,11 +11,9 @@ const getSavedNotes = function() {
 
 // remove note 
 const removeNote = function(id) {
-
     const findNote = notes.findIndex(function(note) {
         return note.id === id
-    }) 
-
+    })
     if(findNote > -1) {
         notes.splice(findNote, 1)
     }
