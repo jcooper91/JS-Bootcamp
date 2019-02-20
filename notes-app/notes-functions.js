@@ -36,7 +36,6 @@ const generateNoteDOM = function(note) {
         removeNote(note.id)
         saveNotes(notes)
         renderNotes(notes, filters)
-    
     })
 
     if(note.title.length > 0) {
