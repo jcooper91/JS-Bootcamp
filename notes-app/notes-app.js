@@ -11,7 +11,8 @@ document.querySelector('#create-note').addEventListener('click', function (e) {
     notes.push({
         id: noteId,
         title: '',
-        body: ''
+        body: '',
+        createdAt: moment().valueOf().toString()
     })
     saveNotes(notes)
     location.assign(`./edit.html#${noteId}`)
@@ -32,5 +33,10 @@ window.addEventListener('storage', function(e) {
         renderNotes(notes, filters)
     }
 })
+const now = moment().valueOf().toString()
+console.log(now.toString());
 
 
+// 1. Add createdAt and updateAt to the new notes (store timestamp)
+// 2. Update updateAt when someone edits a title or body
+// 3. Delete all old notes before testing
