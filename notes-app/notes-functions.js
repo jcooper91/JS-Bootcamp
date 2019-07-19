@@ -1,3 +1,5 @@
+'strict mode'
+
 // get saved notes from localstorage
 const getSavedNotes = () => {
     let notesJSON = localStorage.getItem('notes')

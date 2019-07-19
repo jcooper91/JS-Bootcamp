@@ -5,6 +5,6 @@
 let value = true + 12
 let type = typeof value 
 console.log(value)
-console.log(type);
+console.log(type)
 
 

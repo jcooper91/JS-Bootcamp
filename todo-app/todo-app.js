@@ -1,3 +1,5 @@
+'strict mode'
+
 let todos = getSavedTodos();
 
 const filters = {

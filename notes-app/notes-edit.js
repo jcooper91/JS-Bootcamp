@@ -1,3 +1,5 @@
+'strict mode'
+
 // Add a DOM element between the title and body inputs (empty span)
 // Set text value: Last edited 4 hours ago 
 // Update value on title/body/storage change
