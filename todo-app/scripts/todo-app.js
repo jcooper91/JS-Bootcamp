@@ -20,22 +20,23 @@ document.querySelector('#search-todo').addEventListener('input', (e) => {
     renderTodos(todos, filters);
 })
 
-
 document.querySelector('#todo-form').addEventListener('submit', (e) => {
+   let text = e.target.elements.newTodo.value.trim()
    e.preventDefault();
-    todos.push({
-       id: uuidv4(),
-       text:  e.target.elements.newTodo.value,
-       complete: false
-    }) 
-   e.target.elements.newTodo.value = '';
-   saveTodos(todos);
-   renderTodos(todos, filters)
-})
 
-
-document.querySelector('#create-todo').addEventListener('click', (e) => {
-   e.target.textContent = 'The button was clicked!';
+   if(text.length > 0) {
+      todos.push({
+         id: uuidv4(),
+         text,
+         complete: false
+      }) 
+     e.target.elements.newTodo.value = '';
+     saveTodos(todos);
+     renderTodos(todos, filters)
+   } else {
+      alert('Please enter a value')
+   }
+   
 })
 
 
